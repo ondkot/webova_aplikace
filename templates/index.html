@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block header %}
+Hlavní stránka
+{% endblock %}
+
+{% block content %}
+<a href="{{ url_for('login') }}" ><button class="btn btn-outline-primary btn-block">Přihlásit se</button></a>
+<a href="{{ url_for('register') }}" ><button class="btn btn-outline-primary btn-block">Registrovat se</button></a>
+<a href="{{ url_for('galerie') }}" ><button class="btn btn-outline-primary btn-block">Galerie</button></a>
+<a href="{{ url_for('filmy') }}" ><button class="btn btn-outline-primary btn-block">Databáze filmů</button></a>
+{% endblock %}

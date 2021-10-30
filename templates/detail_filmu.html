@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block header %}
+Detail filmu
+{% endblock %}
+
+{% block content %}
+    <table>
+        <tr><td>Název filmu: </td><td>{{ nazev }}</td></tr>
+        <tr><td>Režie: </td><td>{{ rezie }}</td></tr>
+        <tr><td>Žánr: </td><td>{{ zanr }}</td></tr>
+    </table>
+{% endblock %}

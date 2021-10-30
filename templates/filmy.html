@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block header %}
+Databáze filmů
+{% endblock %}
+
+{% block content %}
+    {% if user != "" and user != None %}
+        <form method="POST" class="row justify-content-center" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <table>
+                <tr><td>{{ form.nazev.label }}:</td><td>{{ form.nazev }}</td></tr>
+                <tr><td>{{ form.rezie.label }}:</td><td>{{ form.rezie }}</td></tr>
+                <tr><td>{{ form.zanr.label }}:</td><td>{{ form.zanr }}</td></tr>
+                <tr><td>{{ form.submit.label }}</td><td> {{ form.submit }}<td></tr>
+            </table>
+        </form>
+    {% endif %}
+    <div class="text-center">
+    {% for field, errors in form.errors.items() %}
+        {% for error in errors %}
+            <span style="color: red;">Chyba pole - {{ field }} hláška - {{ error }}</span><br>
+        {% endfor %}
+    {% endfor %}
+    <hr>
+    </div>
+
+    {% for id, film in filmy %}
+        <p><a href="{{ url_for('detail_filmu', idFilmu = id) }}">{{ film }}</a></p>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block header %}
+Registrace
+{% endblock %}
+
+{% block content %}
+    <form method="POST" class="row justify-content-center">
+        {{ form.hidden_tag() }}
+        <table>
+            <tr><td>{{ form.user.label }}:</td><td>{{ form.user }}</td></tr>
+            <tr><td>{{ form.password.label }}: </td><td>{{ form.password }}</td></tr>
+            <tr><td>{{ form.submit.label }}</td><td> {{ form.submit }}<td></tr>
+        </table>
+    </form>
+    <div class="text-center">
+    {% for field, errors in form.errors.items() %}
+        {% for error in errors %}
+            <span style="color: red;">Chyba pole - {{ field }} hláška - {{ error }}</span><br>
+        {% endfor %}
+    {% endfor %}
+    <hr>
+    </div>
+
+<p><h3>Máš už účet?</h3></p>
+<a href="/login">Přihlaš se</a>
+{% endblock %}
